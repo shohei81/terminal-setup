@@ -42,7 +42,7 @@ func RunConfirm(prev, next config.Config) (bool, error) {
 				Negative("Cancel").
 				Value(&proceed),
 		),
-	).Run()
+	).WithTheme(HuhTheme()).Run()
 	if err != nil {
 		return false, err
 	}

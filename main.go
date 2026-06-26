@@ -33,7 +33,7 @@ func main() {
 				Negative("Quit").
 				Value(&startNow),
 		),
-	).Run()
+	).WithTheme(ui.HuhTheme()).Run()
 	if err != nil || !startNow {
 		fmt.Println("Bye!")
 		return
@@ -93,7 +93,7 @@ func main() {
 }
 
 func exitOnCancel(err error) {
-	if err == huh.ErrUserAborted {
+	if err == huh.ErrUserAborted || err == ui.ErrAborted {
 		fmt.Println("\nCancelled.")
 		os.Exit(0)
 	}

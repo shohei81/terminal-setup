@@ -1,0 +1,5 @@
+# Build output
+terminal-setup
+
+# macOS
+.DS_Store

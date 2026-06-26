@@ -1,42 +1,36 @@
 package ui
 
 import (
-	"fmt"
-
-	"github.com/charmbracelet/huh"
 	"github.com/shohei81/terminal-setup/internal/config"
 	"github.com/shohei81/terminal-setup/internal/installer"
 )
 
 func RunTools(cfg *config.Config) error {
-	selected := cfg.OptionalTools
-
-	opts := make([]huh.Option[string], len(installer.TierBMeta))
-	for i, t := range installer.TierBMeta {
-		label := fmt.Sprintf("%-10s — %s", t.Key, t.Desc)
-		opt := huh.NewOption(label, t.Key)
-		for _, s := range selected {
-			if s == t.Key {
-				opt = opt.Selected(true)
-				break
-			}
-		}
-		opts[i] = opt
+	prev := make(map[string]bool)
+	for _, t := range cfg.OptionalTools {
+		prev[t] = true
 	}
 
-	err := huh.NewForm(
-		huh.NewGroup(
-			huh.NewMultiSelect[string]().
-				Title("Optional Tools").
-				Description("Select additional tools to install (you can add more later)").
-				Options(opts...).
-				Value(&selected),
-		),
-	).Run()
+	items := make([]ChecklistItem, len(installer.TierBMeta))
+	for i, t := range installer.TierBMeta {
+		items[i] = ChecklistItem{Key: t.Key, Desc: t.Desc, Selected: prev[t.Key]}
+	}
+
+	result, err := RunChecklist(
+		"Optional Tools",
+		"Choose additional tools to install",
+		items,
+	)
 	if err != nil {
 		return err
 	}
 
+	selected := []string{}
+	for _, item := range result {
+		if item.Selected {
+			selected = append(selected, item.Key)
+		}
+	}
 	cfg.OptionalTools = selected
 	return nil
 }
