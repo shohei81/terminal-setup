@@ -1,0 +1,50 @@
+version: 2
+
+project_name: terminal-setup
+
+before:
+  hooks:
+    - go mod tidy
+
+builds:
+  - id: terminal-setup
+    main: .
+    binary: terminal-setup
+    goos:
+      - darwin
+    goarch:
+      - amd64
+      - arm64
+    env:
+      - CGO_ENABLED=0
+    ldflags:
+      - -s -w
+
+archives:
+  - id: default
+    name_template: "{{ .ProjectName }}_{{ .Os }}_{{ .Arch }}"
+    format: tar.gz
+    files:
+      - none*
+
+checksum:
+  name_template: checksums.txt
+  algorithm: sha256
+
+release:
+  github:
+    owner: shohei81
+    name: terminal-setup
+  name_template: "v{{ .Version }}"
+  draft: false
+  prerelease: auto
+
+changelog:
+  sort: asc
+  filters:
+    exclude:
+      - "^docs:"
+      - "^test:"
+      - "^chore:"
+      - Merge pull request
+      - Merge branch
