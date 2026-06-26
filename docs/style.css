@@ -424,7 +424,27 @@ pre {
   padding: 1rem 1.25rem;
   overflow-x: auto;
   margin: 1rem 0;
+  position: relative;
 }
+
+.copy-code-btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: var(--border);
+  border: none;
+  border-radius: 4px;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 0.72rem;
+  font-family: system-ui, sans-serif;
+  padding: 0.2rem 0.55rem;
+  opacity: 0;
+  transition: opacity 0.15s, background 0.15s, color 0.15s;
+}
+
+pre:hover .copy-code-btn { opacity: 1; }
+.copy-code-btn:hover { background: var(--blue); color: var(--bg); }
 
 pre code {
   font-family: monospace;
