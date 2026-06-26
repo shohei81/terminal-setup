@@ -1,0 +1,5 @@
+[memory_usage]
+disabled = true
+
+[battery]
+disabled = true
