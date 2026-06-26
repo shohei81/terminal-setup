@@ -466,22 +466,21 @@ pre code {
   border: 1px solid var(--border);
   border-radius: 8px;
   padding: 1.1rem 1.25rem;
-  display: flex;
-  align-items: flex-start;
-  gap: 0.75rem;
+  border-left: 3px solid var(--border);
+  transition: border-left-color 0.15s;
 }
 
-.tool-card .tool-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 0.1rem; }
+.tool-card:hover { border-left-color: var(--blue); }
 
 .tool-card h3 {
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   font-weight: 700;
   color: var(--fg);
   font-family: monospace;
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.35rem;
 }
 
-.tool-card p { font-size: 0.85rem; color: var(--muted); margin: 0 0 0.5rem; }
+.tool-card p { font-size: 0.85rem; color: var(--muted); margin: 0 0 0.6rem; }
 
 .tool-link {
   display: inline-block;
