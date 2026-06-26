@@ -20,107 +20,171 @@
 
 <div class="page-header">
   <h1>Setup Guide</h1>
-  <p>A walkthrough of what happens when you run terminal-setup.</p>
+  <p>A complete walkthrough, from zero to a modern terminal environment.</p>
 </div>
 
 <div class="guide-section">
-  <h2>1. Install</h2>
-  <p>Paste this into any terminal window (Terminal.app works fine):</p>
+  <h2>Before you start</h2>
+  <p>This page explains everything from scratch. No prior experience needed.</p>
+
+  <h3>What is a terminal?</h3>
+  <p>The terminal is a text-based window where you control your Mac by typing commands instead of clicking. It looks minimal, but it's one of the most powerful tools on your computer. terminal-setup makes the whole setup process interactive — you just answer questions and it does the work.</p>
+
+  <h3>What is Ghostty?</h3>
+  <p>Ghostty is the terminal application you'll use after setup. It replaces the default Terminal.app that comes with macOS — it's faster, looks better, and supports all the tools terminal-setup installs. You can download Ghostty for free at <a href="https://ghostty.org" target="_blank">ghostty.org</a>.</p>
+
+  <h3>What is Homebrew?</h3>
+  <p>Homebrew is a free tool that installs developer software on your Mac — similar to an App Store, but for command-line tools. terminal-setup uses Homebrew to install everything. <strong>If you don't have it, the installer adds it for you automatically.</strong> You don't need to do anything in advance.</p>
+</div>
+
+<div class="guide-section">
+  <h2>1. Open a terminal window</h2>
+  <p>You need any terminal window to run the install command. The default Terminal.app that ships with macOS works fine for this step.</p>
+
+  <div class="step-list">
+    <div class="step-item">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <h4>Open Spotlight</h4>
+        <p>Press <strong>Cmd + Space</strong> on your keyboard. A search bar appears in the middle of your screen.</p>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <h4>Search for Terminal</h4>
+        <p>Type <strong>Terminal</strong> and press <strong>Enter</strong>. A window with a plain text prompt opens.</p>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <h4>Paste and run the install command</h4>
+        <p>Copy the command below, paste it into the Terminal window with <strong>Cmd + V</strong>, then press <strong>Enter</strong>.</p>
+      </div>
+    </div>
+  </div>
+
   <pre><code>curl -fsSL https://raw.githubusercontent.com/shohei81/terminal-setup/main/install.sh | sh</code></pre>
-  <p>The script will:</p>
-  <ul>
-    <li>Check that you're on macOS</li>
-    <li>Install Homebrew if it's not already installed</li>
-    <li>Download the <code>terminal-setup</code> binary for your Mac (Apple Silicon or Intel)</li>
-    <li>Launch the interactive setup</li>
-  </ul>
+
+  <p>The script checks your Mac, installs Homebrew if needed, downloads the terminal-setup program, and launches it. <strong>You may be asked to enter your Mac login password</strong> — this is normal and needed for Homebrew to install software.</p>
 </div>
 
 <div class="guide-section">
   <h2>2. Choose your appearance</h2>
-  <p>The first set of screens lets you customize how Ghostty looks.</p>
+  <p>The first set of screens lets you customize how Ghostty looks. Use the <strong>arrow keys</strong> to navigate and <strong>Enter</strong> to select.</p>
 
   <h3>Color theme</h3>
-  <p>Pick from 10 popular themes shown with a live preview of each palette. Themes range from dark to light, cool to warm.</p>
+  <p>Pick from 10 popular themes. Each option shows a small preview of the actual colors — you can see the difference before choosing. Themes are split into dark (easier on the eyes at night) and light (better in bright rooms).</p>
 
   <h3>Font size</h3>
-  <p>Choose a font size that feels comfortable. The default is 14pt. Ghostty uses Hack Nerd Font, which is installed automatically.</p>
+  <p>Choose how large the text appears. The default is 14pt — a good starting point. You can always change it later by running terminal-setup again.</p>
 
   <h3>Background opacity</h3>
-  <p>Enable background transparency if you want a frosted-glass look. Works best with a colorful desktop wallpaper.</p>
+  <p>If you turn this on, the terminal background becomes slightly see-through, like frosted glass. It's a visual effect — pick whichever you prefer.</p>
 </div>
 
 <div class="guide-section">
   <h2>3. Terminal info display</h2>
-  <p>fastfetch shows a system overview when a new terminal opens. Choose which details to show:</p>
+  <p>fastfetch shows a summary of your Mac's info every time you open a new terminal window. You choose which details to show.</p>
+  <p>Navigate with <strong>↑↓</strong>, toggle items on/off with <strong>Enter</strong>, then move down to the Confirm button and press Enter to save.</p>
   <ul>
     <li>OS — macOS version</li>
-    <li>Host — your Mac model</li>
-    <li>Shell — your current shell (zsh)</li>
+    <li>Host — your Mac model name</li>
+    <li>Shell — the shell you're using (zsh)</li>
     <li>CPU — processor name and speed</li>
     <li>Memory — RAM usage</li>
-    <li>Battery — charge level and estimated time</li>
+    <li>Battery — charge level</li>
     <li>Disk — available storage</li>
     <li>GPU — graphics chip</li>
-    <li>Uptime — how long since last restart</li>
+    <li>Uptime — time since last restart</li>
     <li>Colors — a color palette swatch</li>
   </ul>
-  <p>Navigate with <code>↑↓</code>, toggle with <code>Enter</code>, then move down to Confirm.</p>
 </div>
 
 <div class="guide-section">
   <h2>4. Optional tools</h2>
-  <p>A set of powerful extras you can opt into. Each one is independent — install only what sounds useful to you.</p>
-  <p>See the <a href="./tools.html">Tools page</a> for descriptions of each option.</p>
+  <p>A set of extra tools you can install or skip. Each one is independent — install only what sounds useful. You can add more later by running terminal-setup again.</p>
+  <p>See the <a href="./tools.html">Tools page</a> for a description of each option.</p>
 </div>
 
 <div class="guide-section">
-  <h2>5. .zshrc strategy</h2>
-  <p>terminal-setup needs to add a few lines to your <code>.zshrc</code> file (your shell config). You can choose how:</p>
+  <h2>5. Shell config (.zshrc)</h2>
+  <p>terminal-setup needs to add a small block of settings to a file called <code>.zshrc</code>. This file runs automatically every time you open a terminal — it's how tools like Starship and autosuggestions get loaded.</p>
+  <p>Don't worry if you've never heard of it. Just pick one of the options below:</p>
 
   <div class="step-list">
     <div class="step-item">
       <div class="step-num">A</div>
       <div class="step-body">
-        <h4>Append (recommended)</h4>
-        <p>Adds terminal-setup's config block to the end of your existing file. A date-stamped backup is saved first.</p>
+        <h4>Append — recommended for most people</h4>
+        <p>Adds terminal-setup's settings to the end of your existing file. Your current settings are kept. A backup is saved automatically before anything changes.</p>
       </div>
     </div>
     <div class="step-item">
       <div class="step-num">B</div>
       <div class="step-body">
-        <h4>Overwrite</h4>
-        <p>Replaces your entire .zshrc with the generated config. A backup is saved before anything is changed.</p>
+        <h4>Overwrite — fresh start</h4>
+        <p>Replaces your entire .zshrc with a new one. Choose this only if you want to start completely from scratch. A backup is saved first.</p>
       </div>
     </div>
     <div class="step-item">
       <div class="step-num">C</div>
       <div class="step-body">
-        <h4>Skip</h4>
-        <p>Don't touch .zshrc at all. Ghostty and tools will still be installed.</p>
+        <h4>Skip — handle it yourself</h4>
+        <p>terminal-setup won't touch your .zshrc at all. Ghostty and tools will still be installed, but you'll need to add the config lines manually.</p>
       </div>
     </div>
   </div>
 
-  <p style="margin-top: 1rem;">If you run terminal-setup again, the append strategy will find its own config block and update it in place — your other .zshrc content stays untouched.</p>
+  <p style="margin-top:1rem;">If you run terminal-setup again later, the Append option will find its own block and update it in place — your other settings stay untouched.</p>
 </div>
 
 <div class="guide-section">
   <h2>6. Review &amp; confirm</h2>
-  <p>A summary of your choices is shown before anything is installed. If something looks wrong, press <code>esc</code> to go back.</p>
-  <p>Confirm to begin installation. Each step prints its progress as it runs.</p>
+  <p>Before anything is installed, you'll see a summary of all your choices. Read it over — if something looks wrong, press <strong>Esc</strong> to go back and change it.</p>
+  <p>When you're ready, confirm to begin. Each step prints its progress as it runs. Installation usually takes 2–5 minutes depending on your internet speed.</p>
 </div>
 
 <div class="guide-section">
-  <h2>7. Restart Ghostty</h2>
-  <p>Once installation completes, quit and relaunch Ghostty. Your new theme, prompt, and tools are ready.</p>
-  <p>If Ghostty isn't installed yet, download it from <a href="https://ghostty.org" target="_blank">ghostty.org</a> and open it for the first time.</p>
+  <h2>7. Open Ghostty</h2>
+  <p>Once the installer finishes, you need to download and open Ghostty if you haven't already.</p>
+
+  <div class="step-list">
+    <div class="step-item">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <h4>Download Ghostty</h4>
+        <p>Go to <a href="https://ghostty.org" target="_blank">ghostty.org</a> and download the macOS app.</p>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <h4>Open Ghostty for the first time</h4>
+        <p>Move it to your Applications folder and open it. macOS may ask you to confirm — click Open.</p>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <h4>Your new terminal is ready</h4>
+        <p>Your color theme, Starship prompt, and tools are all active. If you see the fastfetch system info, everything worked.</p>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div class="guide-section">
-  <h2>Running again</h2>
-  <p>terminal-setup is idempotent — safe to run multiple times. Already-installed packages are skipped. Your previous choices are shown as defaults so you only change what you want.</p>
+  <h2>Running it again</h2>
+  <p>terminal-setup is safe to run multiple times. Already-installed packages are skipped, and your previous choices are shown as defaults — so you only change what you want.</p>
   <pre><code>terminal-setup</code></pre>
+  <p>Use this to try a different theme, add more tools, or update your config after learning what you actually use.</p>
+</div>
+
+<div class="guide-section">
+  <h2>Something went wrong?</h2>
+  <p>If the installer fails partway through, it's usually safe to run it again — it picks up where it left off. If you're stuck, <a href="https://github.com/shohei81/terminal-setup/issues" target="_blank">open an issue on GitHub</a> with the error message and someone can help.</p>
 </div>
 
 <footer>
