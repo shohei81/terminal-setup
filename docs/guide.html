@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Setup Guide — terminal-setup</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="./index.html" class="nav-logo">terminal<span>-setup</span></a>
+    <div class="nav-links">
+      <a href="./guide.html" class="active">Guide</a>
+      <a href="./tools.html">Tools</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-header">
+  <h1>Setup Guide</h1>
+  <p>A walkthrough of what happens when you run terminal-setup.</p>
+</div>
+
+<div class="guide-section">
+  <h2>1. Install</h2>
+  <p>Paste this into any terminal window (Terminal.app works fine):</p>
+  <pre><code>curl -fsSL https://raw.githubusercontent.com/shohei81/terminal-setup/main/install.sh | sh</code></pre>
+  <p>The script will:</p>
+  <ul>
+    <li>Check that you're on macOS</li>
+    <li>Install Homebrew if it's not already installed</li>
+    <li>Download the <code>terminal-setup</code> binary for your Mac (Apple Silicon or Intel)</li>
+    <li>Launch the interactive setup</li>
+  </ul>
+</div>
+
+<div class="guide-section">
+  <h2>2. Choose your appearance</h2>
+  <p>The first set of screens lets you customize how Ghostty looks.</p>
+
+  <h3>Color theme</h3>
+  <p>Pick from 10 popular themes shown with a live preview of each palette. Themes range from dark to light, cool to warm.</p>
+
+  <h3>Font size</h3>
+  <p>Choose a font size that feels comfortable. The default is 14pt. Ghostty uses Hack Nerd Font, which is installed automatically.</p>
+
+  <h3>Background opacity</h3>
+  <p>Enable background transparency if you want a frosted-glass look. Works best with a colorful desktop wallpaper.</p>
+</div>
+
+<div class="guide-section">
+  <h2>3. Terminal info display</h2>
+  <p>fastfetch shows a system overview when a new terminal opens. Choose which details to show:</p>
+  <ul>
+    <li>OS — macOS version</li>
+    <li>Host — your Mac model</li>
+    <li>Shell — your current shell (zsh)</li>
+    <li>CPU — processor name and speed</li>
+    <li>Memory — RAM usage</li>
+    <li>Battery — charge level and estimated time</li>
+    <li>Disk — available storage</li>
+    <li>GPU — graphics chip</li>
+    <li>Uptime — how long since last restart</li>
+    <li>Colors — a color palette swatch</li>
+  </ul>
+  <p>Navigate with <code>↑↓</code>, toggle with <code>Enter</code>, then move down to Confirm.</p>
+</div>
+
+<div class="guide-section">
+  <h2>4. Optional tools</h2>
+  <p>A set of powerful extras you can opt into. Each one is independent — install only what sounds useful to you.</p>
+  <p>See the <a href="./tools.html">Tools page</a> for descriptions of each option.</p>
+</div>
+
+<div class="guide-section">
+  <h2>5. .zshrc strategy</h2>
+  <p>terminal-setup needs to add a few lines to your <code>.zshrc</code> file (your shell config). You can choose how:</p>
+
+  <div class="step-list">
+    <div class="step-item">
+      <div class="step-num">A</div>
+      <div class="step-body">
+        <h4>Append (recommended)</h4>
+        <p>Adds terminal-setup's config block to the end of your existing file. A date-stamped backup is saved first.</p>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">B</div>
+      <div class="step-body">
+        <h4>Overwrite</h4>
+        <p>Replaces your entire .zshrc with the generated config. A backup is saved before anything is changed.</p>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">C</div>
+      <div class="step-body">
+        <h4>Skip</h4>
+        <p>Don't touch .zshrc at all. Ghostty and tools will still be installed.</p>
+      </div>
+    </div>
+  </div>
+
+  <p style="margin-top: 1rem;">If you run terminal-setup again, the append strategy will find its own config block and update it in place — your other .zshrc content stays untouched.</p>
+</div>
+
+<div class="guide-section">
+  <h2>6. Review &amp; confirm</h2>
+  <p>A summary of your choices is shown before anything is installed. If something looks wrong, press <code>esc</code> to go back.</p>
+  <p>Confirm to begin installation. Each step prints its progress as it runs.</p>
+</div>
+
+<div class="guide-section">
+  <h2>7. Restart Ghostty</h2>
+  <p>Once installation completes, quit and relaunch Ghostty. Your new theme, prompt, and tools are ready.</p>
+  <p>If Ghostty isn't installed yet, download it from <a href="https://ghostty.org" target="_blank">ghostty.org</a> and open it for the first time.</p>
+</div>
+
+<div class="guide-section">
+  <h2>Running again</h2>
+  <p>terminal-setup is idempotent — safe to run multiple times. Already-installed packages are skipped. Your previous choices are shown as defaults so you only change what you want.</p>
+  <pre><code>terminal-setup</code></pre>
+</div>
+
+<footer>
+  <a href="https://github.com/shohei81/terminal-setup" target="_blank">GitHub</a>
+</footer>
+
+</body>
+</html>

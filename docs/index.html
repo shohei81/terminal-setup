@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>terminal-setup</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <span class="nav-logo">terminal<span>-setup</span></span>
+    <div class="nav-links">
+      <a href="./guide.html">Guide</a>
+      <a href="./tools.html">Tools</a>
+    </div>
+  </div>
+</nav>
+
+<div class="hero">
+  <h1>Set up your terminal<br>in minutes.</h1>
+  <p>A single command gives you a modern, beautiful terminal on macOS — no config files, no guesswork.</p>
+
+  <div class="install-block">
+    <code id="install-cmd">curl -fsSL https://raw.githubusercontent.com/shohei81/terminal-setup/main/install.sh | sh</code>
+    <button class="copy-btn" onclick="copyInstall(this)">Copy</button>
+  </div>
+  <div class="install-note">macOS only · Requires an internet connection</div>
+</div>
+
+<section>
+  <h2>What you get</h2>
+  <div class="cards">
+    <div class="card">
+      <div class="card-icon">✦</div>
+      <h3>Beautiful by default</h3>
+      <p>Tokyo Night theme, Hack Nerd Font, and Starship prompt — configured automatically. Looks great from the first launch.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">⚡</div>
+      <h3>Modern tools included</h3>
+      <p>lsd, bat, fd, ripgrep and more — the latest CLI tools that make everyday terminal work faster and clearer.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">◎</div>
+      <h3>Your choices, zero config</h3>
+      <p>Pick your theme, font size, and optional tools through a simple interactive menu. No config files to write.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>How it works</h2>
+  <div class="steps">
+    <div class="step">
+      <h3>Run the command</h3>
+      <p>Paste one line into your terminal. Homebrew is installed automatically if needed.</p>
+    </div>
+    <div class="step">
+      <h3>Choose your style</h3>
+      <p>Pick a color theme, font size, and whether the background should be transparent.</p>
+    </div>
+    <div class="step">
+      <h3>Pick your tools</h3>
+      <p>Select optional tools like fzf, zoxide, yazi, and more from an interactive list.</p>
+    </div>
+    <div class="step">
+      <h3>Done</h3>
+      <p>Restart Ghostty. Your new terminal environment is ready.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <a href="https://github.com/shohei81/terminal-setup" target="_blank">GitHub</a>
+</footer>
+
+<script>
+function copyInstall(btn) {
+  const text = document.getElementById('install-cmd').textContent;
+  navigator.clipboard.writeText(text).then(() => {
+    btn.textContent = '✓';
+    setTimeout(() => btn.textContent = 'Copy', 2000);
+  });
+}
+</script>
+</body>
+</html>
