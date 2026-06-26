@@ -453,34 +453,116 @@ pre code {
 .step-body h4 { font-size: 0.95rem; font-weight: 700; color: var(--fg); margin-bottom: 0.2rem; }
 .step-body p  { font-size: 0.875rem; color: var(--muted); margin: 0; }
 
-/* ── Tools page ── */
-.tools-grid {
+/* ── Tools page layout ── */
+.tools-layout {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1rem;
-  margin-top: 1.5rem;
+  grid-template-columns: 168px 1fr;
+  gap: 3.5rem;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+  align-items: start;
 }
 
-.tool-card {
-  background: var(--bg-alt);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 1.1rem 1.25rem;
-  border-left: 3px solid var(--border);
-  transition: border-left-color 0.15s;
+.tools-sidebar {
+  position: sticky;
+  top: 72px;
 }
 
-.tool-card:hover { border-left-color: var(--blue); }
+.tools-index {
+  display: flex;
+  flex-direction: column;
+}
 
-.tool-card h3 {
-  font-size: 0.9rem;
+.index-group {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  margin: 1.25rem 0 0.4rem;
+}
+
+.index-group:first-child { margin-top: 0; }
+
+.tools-index a {
+  font-size: 0.82rem;
+  font-family: monospace;
+  color: var(--muted);
+  text-decoration: none;
+  padding: 0.2rem 0;
+  transition: color 0.12s;
+}
+
+.tools-index a:hover { color: var(--fg); text-decoration: none; }
+
+/* ── Tool entries ── */
+.tools-tier-header {
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 0;
+}
+
+.tools-tier-header p {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-top: 0.4rem;
+}
+
+.tool-entry {
+  padding: 2rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.tool-entry:last-child { border-bottom: none; }
+
+.tool-entry-header {
+  margin-bottom: 0.6rem;
+}
+
+.tool-entry-header h2 {
+  font-family: monospace;
+  font-size: 1.05rem;
   font-weight: 700;
   color: var(--fg);
-  font-family: monospace;
-  margin-bottom: 0.35rem;
 }
 
-.tool-card p { font-size: 0.85rem; color: var(--muted); margin: 0 0 0.6rem; }
+.tool-entry p {
+  font-size: 0.875rem;
+  color: var(--muted);
+  line-height: 1.75;
+  margin-bottom: 0.6rem;
+}
+
+.tool-entry p:last-of-type { margin-bottom: 0.75rem; }
+
+/* ── Command block ── */
+.tool-cmd {
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.65rem 1rem;
+  margin: 0.75rem 0;
+  font-family: 'SF Mono', 'Fira Mono', ui-monospace, monospace;
+  font-size: 0.8rem;
+  line-height: 1.7;
+}
+
+.cmd-prompt  { color: var(--blue); user-select: none; }
+.cmd-text    { color: var(--green); }
+.cmd-accent  { color: var(--blue); }
+.cmd-ghost   { color: var(--muted); }
+.cmd-comment { color: #404a40; }
+.cmd-cursor  { color: var(--blue); }
+
+kbd {
+  font-family: monospace;
+  font-size: 0.78rem;
+  background: var(--border);
+  border-radius: 3px;
+  padding: 0.05rem 0.35rem;
+  color: var(--fg);
+}
 
 .tool-link {
   display: inline-block;
@@ -489,16 +571,17 @@ pre code {
   text-decoration: none;
   opacity: 0.7;
   transition: opacity 0.15s;
+  margin-top: 0.25rem;
 }
 .tool-link:hover { opacity: 1; text-decoration: underline; }
 
 .tier-label {
   display: inline-block;
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 700;
   padding: 0.2rem 0.6rem;
   border-radius: 4px;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .tier-a { background: rgba(134, 239, 172, 0.1); color: var(--green); }
@@ -532,4 +615,10 @@ footer a:hover { color: var(--fg); text-decoration: none; }
 @media (max-width: 600px) {
   .install-block { flex-direction: column; align-items: stretch; }
   .install-block code { white-space: normal; word-break: break-all; }
+  .tools-layout {
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding-top: 1rem;
+  }
+  .tools-sidebar { display: none; }
 }
