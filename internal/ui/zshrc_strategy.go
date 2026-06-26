@@ -32,7 +32,7 @@ func RunZshrcStrategy(cfg *config.Config) error {
 				).
 				Value(&strategy),
 		),
-	).WithTheme(HuhTheme()).Run()
+	).WithTheme(HuhTheme()).WithKeyMap(HuhKeyMap()).Run()
 	if err != nil {
 		return err
 	}

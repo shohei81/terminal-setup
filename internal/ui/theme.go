@@ -1,6 +1,7 @@
 package ui
 
 import (
+	"github.com/charmbracelet/bubbles/key"
 	"github.com/charmbracelet/huh"
 	"github.com/charmbracelet/lipgloss"
 )
@@ -34,4 +35,11 @@ func HuhTheme() *huh.Theme {
 	t.Blurred.Option = t.Blurred.Option.Foreground(muted)
 
 	return t
+}
+
+// HuhKeyMap returns a keymap that adds esc as a quit key alongside ctrl+c.
+func HuhKeyMap() *huh.KeyMap {
+	km := huh.NewDefaultKeyMap()
+	km.Quit = key.NewBinding(key.WithKeys("ctrl+c", "esc"))
+	return km
 }

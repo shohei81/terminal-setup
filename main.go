@@ -33,7 +33,7 @@ func main() {
 				Negative("Quit").
 				Value(&startNow),
 		),
-	).WithTheme(ui.HuhTheme()).Run()
+	).WithTheme(ui.HuhTheme()).WithKeyMap(ui.HuhKeyMap()).Run()
 	if err != nil || !startNow {
 		fmt.Println("Bye!")
 		return

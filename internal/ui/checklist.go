@@ -31,22 +31,38 @@ func (m checklistModel) Init() tea.Cmd { return nil }
 func (m checklistModel) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 	switch msg := msg.(type) {
 	case tea.KeyMsg:
-		switch msg.String() {
-		case "ctrl+c", "esc":
+		// Use msg.Type for special keys, msg.Runes for printable characters.
+		// (bubbletea v1.x documented API — msg.String() is unreliable for esc)
+		switch msg.Type {
+		case tea.KeyCtrlC, tea.KeyEsc:
 			m.aborted = true
 			return m, tea.Quit
-		case "up", "k":
+		case tea.KeyUp:
 			if m.cursor > 0 {
 				m.cursor--
 			}
-		case "down", "j":
+		case tea.KeyDown:
 			if m.cursor < len(m.items) {
 				m.cursor++
 			}
-		case "enter":
+		case tea.KeyEnter:
 			if m.cursor < len(m.items) {
 				m.items[m.cursor].Selected = !m.items[m.cursor].Selected
 			} else {
+				return m, tea.Quit
+			}
+		case tea.KeyRunes:
+			switch string(msg.Runes) {
+			case "k":
+				if m.cursor > 0 {
+					m.cursor--
+				}
+			case "j":
+				if m.cursor < len(m.items) {
+					m.cursor++
+				}
+			case "q":
+				m.aborted = true
 				return m, tea.Quit
 			}
 		}
@@ -112,7 +128,7 @@ func (m checklistModel) View() string {
 	}
 
 	sb.WriteString("\n")
-	sb.WriteString(clDescStyle.Render(indent+"↑↓ navigate · Enter select/confirm · esc quit") + "\n")
+	sb.WriteString(clDescStyle.Render(indent+"↑↓ navigate · Enter select/confirm · esc/q quit") + "\n")
 
 	return sb.String()
 }
@@ -121,7 +137,7 @@ func (m checklistModel) View() string {
 // navigating to the Confirm button + Enter submits the selection.
 func RunChecklist(title, desc string, items []ChecklistItem) ([]ChecklistItem, error) {
 	m := checklistModel{title: title, desc: desc, items: items}
-	p := tea.NewProgram(m, tea.WithAltScreen())
+	p := tea.NewProgram(m)
 	result, err := p.Run()
 	if err != nil {
 		return nil, err

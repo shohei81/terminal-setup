@@ -99,7 +99,7 @@ func RunAppearance(cfg *config.Config) error {
 				).
 				Value(&opacityStr),
 		),
-	).WithTheme(HuhTheme()).Run()
+	).WithTheme(HuhTheme()).WithKeyMap(HuhKeyMap()).Run()
 	if err != nil {
 		return err
 	}
