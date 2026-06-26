@@ -21,6 +21,7 @@
 <div class="page-header">
   <h1>Tools</h1>
   <p>Everything terminal-setup installs, and why.</p>
+  <p class="tools-note">A <strong>command</strong> is a word (or short phrase) you type in the terminal and press Enter to run. The examples below show what to type — lines starting with <code>$</code> are commands you run, lines without are output or explanations.</p>
 </div>
 
 <div class="tools-layout">
@@ -58,7 +59,7 @@
       <div class="tool-entry-header">
         <h2>Ghostty</h2>
       </div>
-      <p>A fast, feature-rich terminal emulator built for macOS. GPU-accelerated with a native look and feel. terminal-setup configures it automatically with your chosen theme and font.</p>
+      <p>The terminal app itself — the window where you type commands. Ghostty is faster and looks better than the default Terminal.app that comes with macOS. terminal-setup configures it automatically with your chosen theme and font.</p>
       <p>Open it like any Mac app — from Launchpad, Spotlight (<strong>Cmd+Space</strong> → type "Ghostty"), or your Dock.</p>
       <a href="https://github.com/ghostty-org/ghostty" target="_blank" class="tool-link">github.com/ghostty-org/ghostty →</a>
     </div>
@@ -67,7 +68,7 @@
       <div class="tool-entry-header">
         <h2>Hack Nerd Font</h2>
       </div>
-      <p>A monospace font patched with thousands of icons. Used by Starship, lsd, yazi, and many other tools to show file icons, Git status symbols, and branch indicators in the terminal. Applied automatically in Ghostty — no commands needed.</p>
+      <p>A font designed for the terminal. It includes thousands of small icons — folder symbols, file type icons, Git branch indicators — that other tools like Starship and lsd use to make their output cleaner. Applied automatically in Ghostty — nothing to configure.</p>
       <a href="https://github.com/ryanoasis/nerd-fonts" target="_blank" class="tool-link">github.com/ryanoasis/nerd-fonts →</a>
     </div>
 
@@ -75,9 +76,9 @@
       <div class="tool-entry-header">
         <h2>Starship</h2>
       </div>
-      <p>A minimal, fast shell prompt that shows useful context automatically — the current Git branch, whether there are uncommitted changes, which language version a project uses, and more. Loads silently every time you open a terminal.</p>
+      <p>The <strong>prompt</strong> is the line that appears before your cursor — it usually shows the current folder name. Starship makes the prompt more useful: it automatically shows which Git branch you're on, whether there are unsaved changes, which version of a programming language the project uses, and more. It loads silently every time you open a terminal.</p>
       <div class="tool-cmd">
-        <span class="cmd-comment"># Shown automatically in your prompt — no command to run</span><br>
+        <span class="cmd-comment"># Your prompt looks something like this — no command needed:</span><br>
         <span class="cmd-prompt">~/projects/myapp</span> <span class="cmd-accent">git:(main ✗)</span> <span class="cmd-cursor">▸</span>
       </div>
       <a href="https://github.com/starship/starship" target="_blank" class="tool-link">github.com/starship/starship →</a>
@@ -87,11 +88,11 @@
       <div class="tool-entry-header">
         <h2>lsd</h2>
       </div>
-      <p>A modern replacement for the <code>ls</code> command, which lists files in a directory. lsd adds color-coded output, file icons from Nerd Font, and better formatting. terminal-setup aliases <code>ls</code> to <code>lsd</code> automatically, so you don't need to change how you type.</p>
+      <p>Type <code>ls</code> to see what files are in your current folder — like opening a Finder window, but as text. lsd makes that list much easier to read, with colors and icons for each file type. terminal-setup sets it up so <code>ls</code> automatically uses lsd.</p>
       <div class="tool-cmd">
-        <span class="cmd-prompt">$</span> <span class="cmd-text">ls</span><span class="cmd-comment">               # runs lsd automatically (aliased)</span><br>
-        <span class="cmd-prompt">$</span> <span class="cmd-text">ll</span><span class="cmd-comment">               # alias for: lsd -la (hidden files + details)</span><br>
-        <span class="cmd-prompt">$</span> <span class="cmd-text">lsd --tree</span><span class="cmd-comment">       # show folder as a tree</span>
+        <span class="cmd-prompt">$</span> <span class="cmd-text">ls</span><span class="cmd-comment">               # list files in the current folder</span><br>
+        <span class="cmd-prompt">$</span> <span class="cmd-text">ll</span><span class="cmd-comment">               # list files with sizes, dates, and hidden files</span><br>
+        <span class="cmd-prompt">$</span> <span class="cmd-text">lsd --tree</span><span class="cmd-comment">       # show folders and subfolders as a tree</span>
       </div>
       <a href="https://github.com/lsd-rs/lsd" target="_blank" class="tool-link">github.com/lsd-rs/lsd →</a>
     </div>
@@ -100,10 +101,10 @@
       <div class="tool-entry-header">
         <h2>bat</h2>
       </div>
-      <p>A replacement for the <code>cat</code> command, which prints file contents to the terminal. bat adds syntax highlighting (code is colored by language), line numbers, and Git change indicators — so you can read files without opening an editor.</p>
+      <p>Type <code>bat</code> followed by a filename to read that file right in the terminal — without opening an editor. Code is shown with syntax highlighting (colors based on the programming language) and line numbers, making it much easier to skim.</p>
       <div class="tool-cmd">
-        <span class="cmd-prompt">$</span> <span class="cmd-text">bat README.md</span><span class="cmd-comment">    # view a file with highlighting</span><br>
-        <span class="cmd-prompt">$</span> <span class="cmd-text">bat main.go</span><span class="cmd-comment">      # Go code with syntax colors</span>
+        <span class="cmd-prompt">$</span> <span class="cmd-text">bat README.md</span><span class="cmd-comment">    # read a file in the terminal</span><br>
+        <span class="cmd-prompt">$</span> <span class="cmd-text">bat main.go</span><span class="cmd-comment">      # code shown with colors by language</span>
       </div>
       <a href="https://github.com/sharkdp/bat" target="_blank" class="tool-link">github.com/sharkdp/bat →</a>
     </div>
@@ -112,11 +113,11 @@
       <div class="tool-entry-header">
         <h2>fd</h2>
       </div>
-      <p>A faster, friendlier replacement for the <code>find</code> command. Searches for files and folders by name — much simpler to type than <code>find</code>, and typically 5–50× faster.</p>
+      <p>Use <code>fd</code> to search for files by name. Type a word and it finds every file with that name inside the current folder and all subfolders. Fast and simple.</p>
       <div class="tool-cmd">
-        <span class="cmd-prompt">$</span> <span class="cmd-text">fd config</span><span class="cmd-comment">        # find files named "config"</span><br>
-        <span class="cmd-prompt">$</span> <span class="cmd-text">fd .py</span><span class="cmd-comment">           # find all Python files</span><br>
-        <span class="cmd-prompt">$</span> <span class="cmd-text">fd .log ~/Library</span><span class="cmd-comment"> # search in a specific folder</span>
+        <span class="cmd-prompt">$</span> <span class="cmd-text">fd config</span><span class="cmd-comment">        # find every file named "config"</span><br>
+        <span class="cmd-prompt">$</span> <span class="cmd-text">fd .py</span><span class="cmd-comment">           # find every file ending in .py</span><br>
+        <span class="cmd-prompt">$</span> <span class="cmd-text">fd .log ~/Library</span><span class="cmd-comment"> # search inside a specific folder</span>
       </div>
       <a href="https://github.com/sharkdp/fd" target="_blank" class="tool-link">github.com/sharkdp/fd →</a>
     </div>
@@ -125,10 +126,10 @@
       <div class="tool-entry-header">
         <h2>ripgrep</h2>
       </div>
-      <p>Searches the text <em>inside</em> files, extremely fast. Run as <code>rg</code>. Used internally by many code editors and AI tools — if Claude or Cursor searches your codebase, it often uses ripgrep under the hood.</p>
+      <p>Use <code>rg</code> to search for a word or phrase <em>inside</em> files. Unlike fd which finds files by name, ripgrep looks at the contents. Type a word and it finds every file that contains it, showing the matching line. Also used behind the scenes by many AI tools and code editors.</p>
       <div class="tool-cmd">
-        <span class="cmd-prompt">$</span> <span class="cmd-text">rg "TODO"</span><span class="cmd-comment">         # find "TODO" in all files here</span><br>
-        <span class="cmd-prompt">$</span> <span class="cmd-text">rg "api_key" ~/</span><span class="cmd-comment">   # search across your home folder</span>
+        <span class="cmd-prompt">$</span> <span class="cmd-text">rg "TODO"</span><span class="cmd-comment">         # find every file containing "TODO"</span><br>
+        <span class="cmd-prompt">$</span> <span class="cmd-text">rg "api_key" ~/</span><span class="cmd-comment">   # search your entire home folder</span>
       </div>
       <a href="https://github.com/BurntSushi/ripgrep" target="_blank" class="tool-link">github.com/BurntSushi/ripgrep →</a>
     </div>
@@ -148,7 +149,7 @@
       <div class="tool-entry-header">
         <h2>zsh-autosuggestions</h2>
       </div>
-      <p>As you type, shows a faint ghost-text suggestion based on your command history. Press <strong>→</strong> (right arrow) or <strong>Tab</strong> to accept it. Over time it learns your most-used commands and suggests them immediately.</p>
+      <p>As you type, shows a faint ghost-text suggestion based on commands you've typed before. Press <strong>→</strong> (right arrow key) to accept the suggestion. The more you use the terminal, the better it gets at predicting what you're about to type.</p>
       <div class="tool-cmd">
         <span class="cmd-comment"># Type the start of a command you've run before:</span><br>
         <span class="cmd-prompt">$</span> <span class="cmd-text">git pus</span><span class="cmd-ghost">h origin main</span><span class="cmd-comment">  ← press → to accept</span>
@@ -160,9 +161,9 @@
       <div class="tool-entry-header">
         <h2>zsh-completions</h2>
       </div>
-      <p>Adds hundreds of extra Tab-completion definitions for popular tools. Press <strong>Tab</strong> while typing a command to see available options, subcommands, or file paths. Works automatically — no commands needed.</p>
+      <p>When you press <strong>Tab</strong> while typing, the terminal tries to complete what you're writing — filling in a filename, folder, or command option. zsh-completions adds this Tab-completion support for hundreds of popular tools, so you can explore what a command can do without memorizing everything.</p>
       <div class="tool-cmd">
-        <span class="cmd-comment"># Press Tab to complete commands and options:</span><br>
+        <span class="cmd-comment"># Press Tab after typing a partial command:</span><br>
         <span class="cmd-prompt">$</span> <span class="cmd-text">git <kbd>Tab</kbd></span><span class="cmd-comment">   # shows: add, commit, push, pull …</span>
       </div>
       <a href="https://github.com/zsh-users/zsh-completions" target="_blank" class="tool-link">github.com/zsh-users/zsh-completions →</a>
@@ -177,7 +178,7 @@
       <div class="tool-entry-header">
         <h2>fzf</h2>
       </div>
-      <p>A fuzzy finder — type a few letters and it narrows down a list interactively. Most useful for command history search: press <strong>Ctrl+R</strong> to search everything you've ever typed, then select and re-run it.</p>
+      <p>fzf lets you search through a list by typing just a few letters — it narrows down the options as you type. The most useful way to use it: press <strong>Ctrl+R</strong> to search everything you've ever typed in the terminal. Find and re-run any past command without retyping it.</p>
       <div class="tool-cmd">
         <span class="cmd-prompt">$</span> <span class="cmd-text">fzf</span><span class="cmd-comment">              # interactively filter any list</span><br>
         <span class="cmd-text">Ctrl+R</span><span class="cmd-comment">           # fuzzy-search command history</span><br>
@@ -190,11 +191,11 @@
       <div class="tool-entry-header">
         <h2>zoxide</h2>
       </div>
-      <p>A smarter replacement for the <code>cd</code> command. Learns which folders you visit most often, so you can jump to them by typing just a few letters — no full path needed.</p>
+      <p>In the terminal, you move between folders by typing <code>cd foldername</code>. zoxide remembers which folders you visit most often, so instead of typing the full path you can type <code>z</code> and just a few letters — it figures out where you mean.</p>
       <div class="tool-cmd">
-        <span class="cmd-prompt">$</span> <span class="cmd-text">z proj</span><span class="cmd-comment">           # jump to ~/projects/myapp</span><br>
-        <span class="cmd-prompt">$</span> <span class="cmd-text">z down</span><span class="cmd-comment">           # jump to ~/Downloads</span><br>
-        <span class="cmd-prompt">$</span> <span class="cmd-text">zi</span><span class="cmd-comment">               # interactive folder picker</span>
+        <span class="cmd-prompt">$</span> <span class="cmd-text">z proj</span><span class="cmd-comment">           # jumps to ~/projects/myapp</span><br>
+        <span class="cmd-prompt">$</span> <span class="cmd-text">z down</span><span class="cmd-comment">           # jumps to ~/Downloads</span><br>
+        <span class="cmd-prompt">$</span> <span class="cmd-text">zi</span><span class="cmd-comment">               # pick from recently visited folders</span>
       </div>
       <a href="https://github.com/ajeetdsouza/zoxide" target="_blank" class="tool-link">github.com/ajeetdsouza/zoxide →</a>
     </div>
@@ -203,10 +204,10 @@
       <div class="tool-entry-header">
         <h2>yazi</h2>
       </div>
-      <p>A visual file manager that runs inside the terminal. Browse folders, preview files, and open or move things — all with keyboard navigation, without ever leaving the terminal.</p>
+      <p>A file browser that runs inside the terminal. Works like Finder, but with keyboard navigation — browse folders, preview files, and open or move them without leaving the terminal.</p>
       <div class="tool-cmd">
-        <span class="cmd-prompt">$</span> <span class="cmd-text">yazi</span><span class="cmd-comment">             # open file manager here</span><br>
-        <span class="cmd-comment"># h/j/k/l to navigate · Enter to open · q to quit</span>
+        <span class="cmd-prompt">$</span> <span class="cmd-text">yazi</span><span class="cmd-comment">             # open the file browser</span><br>
+        <span class="cmd-comment"># arrow keys to navigate · Enter to open · q to quit</span>
       </div>
       <a href="https://github.com/sxyazi/yazi" target="_blank" class="tool-link">github.com/sxyazi/yazi →</a>
     </div>
@@ -215,9 +216,9 @@
       <div class="tool-entry-header">
         <h2>lazygit</h2>
       </div>
-      <p>A visual Git interface in the terminal. Stage files, write commit messages, view diffs, manage branches — all without memorizing Git commands. A good starting point for learning Git without the command-line friction.</p>
+      <p>Git is a tool that tracks changes to files over time — commonly used for code. lazygit gives Git a visual interface inside the terminal: see what changed, save a snapshot (commit), and upload to GitHub, all without memorizing Git commands.</p>
       <div class="tool-cmd">
-        <span class="cmd-prompt">$</span> <span class="cmd-text">lazygit</span><span class="cmd-comment">          # open inside a Git repo</span><br>
+        <span class="cmd-prompt">$</span> <span class="cmd-text">lazygit</span><span class="cmd-comment">          # open inside a folder tracked by Git</span><br>
         <span class="cmd-comment"># space to stage · c to commit · P to push · q to quit</span>
       </div>
       <a href="https://github.com/jesseduffield/lazygit" target="_blank" class="tool-link">github.com/jesseduffield/lazygit →</a>
@@ -227,7 +228,7 @@
       <div class="tool-entry-header">
         <h2>bottom</h2>
       </div>
-      <p>An interactive system monitor for the terminal. Shows CPU usage, memory, disk, network, and running processes in real time — like Activity Monitor, but in the terminal and keyboard-driven.</p>
+      <p>Shows a live dashboard of how your Mac is performing — CPU, memory, running apps, disk, and network — all in the terminal. Like the Activity Monitor app that comes with macOS, but keyboard-driven and more detailed.</p>
       <div class="tool-cmd">
         <span class="cmd-prompt">$</span> <span class="cmd-text">btm</span><span class="cmd-comment">              # open system monitor</span><br>
         <span class="cmd-comment"># q to quit · arrow keys to navigate</span>
