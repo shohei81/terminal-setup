@@ -336,7 +336,17 @@ pre code {
   margin-bottom: 0.2rem;
 }
 
-.tool-card p { font-size: 0.85rem; color: var(--muted); margin: 0; }
+.tool-card p { font-size: 0.85rem; color: var(--muted); margin: 0 0 0.5rem; }
+
+.tool-link {
+  display: inline-block;
+  font-size: 0.75rem;
+  color: var(--blue);
+  text-decoration: none;
+  opacity: 0.7;
+  transition: opacity 0.15s;
+}
+.tool-link:hover { opacity: 1; text-decoration: underline; }
 
 .tier-label {
   display: inline-block;
