@@ -19,31 +19,52 @@
 </nav>
 
 <div class="hero">
-  <h1>Set up your terminal<br>in minutes.</h1>
-  <p>A single command gives you a modern, beautiful terminal on macOS — no config files, no guesswork.</p>
-
-  <div class="install-block">
-    <code id="install-cmd">curl -fsSL https://raw.githubusercontent.com/shohei81/terminal-setup/main/install.sh | sh</code>
-    <button class="copy-btn" onclick="copyInstall(this)">Copy</button>
+  <div class="hero-copy">
+    <p class="hero-eyebrow">macOS · open source</p>
+    <h1>Set up your terminal<br>in minutes.</h1>
+    <p class="hero-desc">One command. No config files. Pick your tools interactively — Ghostty, Starship, and a complete CLI stack, ready to go.</p>
+    <div class="install-block">
+      <code id="install-cmd">curl -fsSL https://raw.githubusercontent.com/shohei81/terminal-setup/main/install.sh | sh</code>
+      <button class="copy-btn" onclick="copyInstall(this)">Copy</button>
+    </div>
+    <p class="install-note">macOS only · Homebrew installed automatically</p>
   </div>
-  <div class="install-note">macOS only · Requires an internet connection</div>
+  <div class="hero-visual">
+    <div class="term-win">
+      <div class="term-bar">
+        <span class="term-dot" style="background:#ff5f57"></span>
+        <span class="term-dot" style="background:#febc2e"></span>
+        <span class="term-dot" style="background:#28c840"></span>
+        <span class="term-bar-title">terminal-setup</span>
+      </div>
+      <div class="term-body">
+        <div class="term-row"><span class="tc-green">$</span> <span class="tc-blue">terminal-setup</span></div>
+        <div class="term-row term-blank">&nbsp;</div>
+        <div class="term-row"><span class="tc-blue tc-bold">  Choose a color theme</span></div>
+        <div class="term-row term-blank">&nbsp;</div>
+        <div class="term-row term-active">  <span class="tc-blue">▶</span> <span class="tc-green">◉</span> <span class="term-thname">Tokyo Night  </span><span class="term-swatch" style="background:#1a1b26"><span style="color:#9ece6a"> $ </span><span style="color:#7aa2f7">echo</span><span style="color:#c0caf5"> Hello </span></span></div>
+        <div class="term-row term-dim">    <span class="tc-muted">○</span> <span class="term-thname">Catppuccin   </span><span class="term-swatch" style="background:#1e1e2e"><span style="color:#a6e3a1"> $ </span><span style="color:#89b4fa">echo</span><span style="color:#cdd6f4"> Hello </span></span></div>
+        <div class="term-row term-dim">    <span class="tc-muted">○</span> <span class="term-thname">Dracula      </span><span class="term-swatch" style="background:#282a36"><span style="color:#50fa7b"> $ </span><span style="color:#8be9fd">echo</span><span style="color:#f8f8f2"> Hello </span></span></div>
+        <div class="term-row term-dim">    <span class="tc-muted">○</span> <span class="term-thname">Nord         </span><span class="term-swatch" style="background:#2e3440"><span style="color:#a3be8c"> $ </span><span style="color:#81a1c1">echo</span><span style="color:#d8dee9"> Hello </span></span></div>
+        <div class="term-row term-blank">&nbsp;</div>
+        <div class="term-row term-hint">  ↑↓ navigate · enter select · esc quit</div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <section>
-  <h2>What you get</h2>
-  <div class="cards">
-    <div class="card">
-      <div class="card-icon">✦</div>
+  <p class="section-label">What you get</p>
+  <div class="features">
+    <div class="feature">
       <h3>Beautiful by default</h3>
       <p>Tokyo Night theme, Hack Nerd Font, and Starship prompt — configured automatically. Looks great from the first launch.</p>
     </div>
-    <div class="card">
-      <div class="card-icon">⚡</div>
+    <div class="feature">
       <h3>Modern tools included</h3>
-      <p>lsd, bat, fd, ripgrep and more — the latest CLI tools that make everyday terminal work faster and clearer.</p>
+      <p>lsd, bat, fd, ripgrep and more — the CLI tools that make everyday terminal work faster and clearer.</p>
     </div>
-    <div class="card">
-      <div class="card-icon">◎</div>
+    <div class="feature">
       <h3>Your choices, zero config</h3>
       <p>Pick your theme, font size, and optional tools through a simple interactive menu. No config files to write.</p>
     </div>
@@ -51,25 +72,37 @@
 </section>
 
 <section>
-  <h2>How it works</h2>
-  <div class="steps">
-    <div class="step">
-      <h3>Run the command</h3>
-      <p>Paste one line into your terminal. Homebrew is installed automatically if needed.</p>
-    </div>
-    <div class="step">
-      <h3>Choose your style</h3>
-      <p>Pick a color theme, font size, and whether the background should be transparent.</p>
-    </div>
-    <div class="step">
-      <h3>Pick your tools</h3>
-      <p>Select optional tools like fzf, zoxide, yazi, and more from an interactive list.</p>
-    </div>
-    <div class="step">
-      <h3>Done</h3>
-      <p>Restart Ghostty. Your new terminal environment is ready.</p>
-    </div>
-  </div>
+  <p class="section-label">How it works</p>
+  <ol class="timeline">
+    <li class="timeline-item">
+      <div class="timeline-num">01</div>
+      <div class="timeline-body">
+        <h3>Run the command</h3>
+        <p>Paste one line into any terminal window. Homebrew is installed automatically if needed.</p>
+      </div>
+    </li>
+    <li class="timeline-item">
+      <div class="timeline-num">02</div>
+      <div class="timeline-body">
+        <h3>Choose your style</h3>
+        <p>Pick a color theme, font size, and whether the background should be transparent.</p>
+      </div>
+    </li>
+    <li class="timeline-item">
+      <div class="timeline-num">03</div>
+      <div class="timeline-body">
+        <h3>Pick your tools</h3>
+        <p>Select optional tools like fzf, zoxide, yazi, and more from an interactive list.</p>
+      </div>
+    </li>
+    <li class="timeline-item">
+      <div class="timeline-num">04</div>
+      <div class="timeline-body">
+        <h3>Done</h3>
+        <p>Restart Ghostty. Your new terminal environment is ready.</p>
+      </div>
+    </li>
+  </ol>
 </section>
 
 <footer>
